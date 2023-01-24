@@ -8,7 +8,7 @@ public class ReusableMethods {
     kullanilacagi zaman bu class uzerinden cagiracagiz :)
      */
 
-    public void bekle(int saniye){
+    public static void bekle(int saniye){
 
         try {
             Thread.sleep(saniye*1000);

@@ -8,13 +8,13 @@ import utilities.Driver;
 public class AmazonPage {
 
     // Bu class'da amazon'a her gelisimizde gerceklestirdigimiz locate ve bazi islemleri tanimlayacagiz
-    // boylelikle aramaKutusunu veya arama sonuclarini her testin icinde
+    // boylelikle aramaKutusunu veya arama sonuclarini gibi her testin icinde
     // yeniden locate etmemize gerek kalmayacak
 
     // pages package'inin icindeki tum class'lar bunun icin kullanilir
 
     public AmazonPage(){
-        PageFactory.initElements(Driver.grtDriver(),this);
+        PageFactory.initElements(Driver.getDriver(),this);
     }
 
     @FindBy(id="twotabsearchtextbox")

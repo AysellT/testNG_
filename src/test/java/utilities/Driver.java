@@ -23,7 +23,7 @@ public class Driver {
 
     static WebDriver driver;
 
-    public static WebDriver grtDriver() {
+    public static WebDriver getDriver() {
 
         String browser = ConfigurationReader.getProperty("browser");
 
