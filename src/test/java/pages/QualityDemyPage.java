@@ -72,7 +72,6 @@ public class QualityDemyPage {
                 .sendKeys(Keys.TAB).sendKeys("visa").click(payButton).perform();
 
     }
-
     public void loginMethodu(){
 
 
@@ -94,8 +93,6 @@ public class QualityDemyPage {
 
     @FindBy(xpath = "//a[@class='btn btn-danger btn-yes']")
     public WebElement yesButton;
-
-
     public void gonderilecekMailPassword(String gonderilecekMail,String gonderilecekPassword){
 
         if (cookies.isDisplayed()) {
