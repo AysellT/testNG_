@@ -20,13 +20,9 @@ public class dataProvider {
 
         return gonderilecekMailPassword;
     }
-
     @Test(dataProvider = "gonderilecekLogin")
     public void qualityTest(String gonderilecekMail,String gonderilecekPassword){
-
         Driver.getDriver().get(ConfigurationReader.getProperty("qdUrl"));
-
         demy_page.gonderilecekMailPassword(gonderilecekMail,gonderilecekPassword);
-
     }
 }
