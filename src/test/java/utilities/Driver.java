@@ -14,7 +14,6 @@ public class Driver {
     /*
     JUnit'de kullandigimiz TestBase mantigini burada Driver class'i ile olusturacagiz
     bize driver donduren bir method olusturacagiz,TestBase'deki @Before test ile ayni islevi gorecek
-
      */
 
     private Driver(){

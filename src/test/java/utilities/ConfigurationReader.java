@@ -15,9 +15,7 @@ public class ConfigurationReader {
     Test icinde istedigimiz zaman configuration.properties'daki datalari
     ConfigurationReader class'i uzerinden cagirabilmek icin bu class'a
     FileInputStream ile configuration.properties'i tanimlamamiz gerekir, bu islemi
-    static blok icinde yaptik
-
-
+    static blok icinde yaptik.
      */
 
     static Properties properties ;
