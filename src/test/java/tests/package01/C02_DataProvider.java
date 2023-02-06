@@ -1,4 +1,4 @@
-package tests.baslangic;
+package tests.package01;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

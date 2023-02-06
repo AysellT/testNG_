@@ -1,4 +1,4 @@
-package tests.baslangic;
+package tests.package01;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
