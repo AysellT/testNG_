@@ -83,7 +83,7 @@ public class KiwiPage {
     @FindBy (xpath = "//input[@data-test='SearchFieldDateInput']")
     public WebElement departure;
 
-    @FindBy (xpath = "(//div[@data-test='DayContentContainer'])[8]")
+    @FindBy (xpath = "(//div[@data-test='DayContentContainer'])[58]")
     public WebElement february8;
 
     @FindBy (xpath = "//button[@data-test='SearchFormDoneButton']")
@@ -95,11 +95,11 @@ public class KiwiPage {
     @FindBy (xpath = "//a[@data-test='LandingSearchButton']")
     public WebElement buttonSearch;
 
-    @FindBy (xpath = "(//div[@class='Radio__IconContainer-sc-crlwn1-1 ixtoRa'])[1]")
+    @FindBy (xpath = "//span[text()='Aktarmasız (direkt)']")
     public WebElement optionDirect;
 
     @FindBy (xpath = "//span[text()='En ucuz']")
-    public WebElement optionFirst;
+    public WebElement optionEnUcuz;
 
     @FindBy (xpath = "(//span[@class=' length-8'])[4]")
     public WebElement textPrice;

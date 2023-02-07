@@ -59,13 +59,14 @@ public class KiwiTest {
         kiwiPage.optionDirect.click();
 
         // Filtreleme yaptigimiz en ucuz ucusun fiyatini getirerek 5000 tl den kucuk oldgunu dogurlayalim
-        kiwiPage.optionFirst.click();
+        kiwiPage.optionEnUcuz.click();
 
         String priceStr = kiwiPage.textPrice.getText();
         priceStr = priceStr.replaceAll("\\D","");
         int price = Integer.parseInt(priceStr);
         Assert.assertTrue(price<5000);
 
+        Driver.closeDriver();
 
     }
 }
