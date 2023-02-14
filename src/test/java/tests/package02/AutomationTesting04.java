@@ -24,8 +24,6 @@ public class AutomationTesting04 {
     @Test
     public void automationTesting04(){
 
-
-
         Driver.getDriver().get(ConfigurationReader.getProperty("automationtestingUrl"));
 
         automationTP.linkShop.click();
@@ -33,21 +31,19 @@ public class AutomationTesting04 {
 
         softAssert.assertEquals(automationTP.arrivals.size(),3);
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-
-        automationTP.lastArrival.click();
+        actions.scrollToElement(automationTP.lastArrivalPrice).perform();
+        ReusableMethods.bekle(2);
+        actions.click(automationTP.lastArrival).perform();
 
         ReusableMethods.bekle(2);
 
         softAssert.assertTrue(automationTP.buttonAddToBasket.isDisplayed());
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        actions.scrollToElement(automationTP.textDescription).perform();
 
         automationTP.linkDescription.click();
 
-        //actions.sendKeys(Keys.PAGE_DOWN).perform();
-
-        softAssert.assertTrue(automationTP.textDescription.getText().equals(""));
+        softAssert.assertFalse(automationTP.textDescription.getText().equals(""));
 
         softAssert.assertAll();
 

@@ -23,9 +23,11 @@ public class AutomationTestingPage {
     @FindBy (xpath = "//*[@class='products']")
     public List<WebElement> arrivals;
 
-    @FindBy (xpath = "//h3[text()='Mastering JavaScript']")
-    public WebElement lastArrival;
+    @FindBy (xpath = "//*[text()='350.00']")
+    public WebElement lastArrivalPrice;
 
+    @FindBy (xpath = "(//a[@class='woocommerce-LoopProduct-link'])[3]")
+    public WebElement lastArrival;
     @FindBy (xpath = "//button[text()='Add to basket']")
     public WebElement buttonAddToBasket;
 
@@ -34,6 +36,9 @@ public class AutomationTestingPage {
 
     @FindBy (xpath = "//div[@class='column']")
     public WebElement textDescription;
+
+    @FindBy (xpath = "//h2[text()='Product Description']")
+    public WebElement text;
 
 
 
