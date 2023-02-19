@@ -1,14 +1,11 @@
 package tests.package02;
 
-
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.KiwiPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
-
-import java.nio.channels.AcceptPendingException;
 
 public class KiwiTest {
 
@@ -69,4 +66,5 @@ public class KiwiTest {
         Driver.closeDriver();
 
     }
+
 }

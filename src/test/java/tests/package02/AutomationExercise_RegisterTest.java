@@ -80,5 +80,6 @@ public class AutomationExercise_RegisterTest {
         Assert.assertTrue(automationExercisePage.textAccountCreated.isDisplayed());
 
         Driver.getDriver().close();
+
     }
 }

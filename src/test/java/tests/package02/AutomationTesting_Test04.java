@@ -8,7 +8,6 @@ import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-
 public class AutomationTesting_Test04 {
 
     AutomationTestingPage automationTP = new AutomationTestingPage();
