@@ -8,11 +8,11 @@ import org.testng.asserts.SoftAssert;
 import pages.AutomationExercisePage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
 import java.util.List;
 
-public class AutomationExercise08 {
+
+public class AutomationExercise_Test08 {
 
     //1. Launch browser
     //2. Navigate to url 'http://automationexercise.com'
@@ -31,19 +31,27 @@ public class AutomationExercise08 {
     @Test
     public void automationExercise08(){
 
+        //2. Navigate to url 'http://automationexercise.com'
         Driver.getDriver().get(ConfigurationReader.getProperty("automationExerciseUrl"));
 
+        //3. Verify that home page is visible successfully
         String expectedTitle = "automationexercise";
         softAssert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedTitle));
 
+        //4. Click on 'Products' button
         automationExercise.linkProducts.click();
+
+        //5. Verify user is navigated to ALL PRODUCTS page successfully
         softAssert.assertTrue(automationExercise.labelAllProducts.isDisplayed());
 
-        //List<WebElement> allProductsList = automationExercise.listAllProducts;
-        //List<String> allProductsListStr = ReusableMethods.getElementsText(allProductsList);
+        //6. The products list is visible
+        List<WebElement> allProductsList = automationExercise.listAllProducts;
+        softAssert.assertTrue(allProductsList.size()>0);
 
+        //7. Click on 'View Product' of first product
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         automationExercise.firstProduct.click();
+        //9. Verify that  detail is visible: product name, category, price, availability, condition, brand
         softAssert.assertTrue(automationExercise.productInformation.isDisplayed());
 
         softAssert.assertAll();

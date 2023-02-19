@@ -1,7 +1,5 @@
 package tests.package02;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -10,10 +8,8 @@ import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class AutomationTesting04 {
+public class AutomationTesting_Test04 {
 
     AutomationTestingPage automationTP = new AutomationTestingPage();
 
