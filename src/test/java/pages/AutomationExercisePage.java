@@ -49,5 +49,29 @@ public class AutomationExercisePage {
     @FindBy (xpath = "//*[text()='Account Created!']")
     public WebElement textAccountCreated;
 
+    @FindBy (xpath = "//*[text()=' Contact us']")
+    public WebElement linkContactUs;
+
+    @FindBy (xpath = "(//div[@class='col-sm-8'])[2]")
+    public WebElement getInTouchElementi;
+
+    @FindBy (xpath = "//input[@data-qa='name']")
+    public WebElement boxNameContactUs;
+
+    @FindBy (xpath = "//input[@name='upload_file']")
+    public WebElement buttonChooseFile;
+
+    @FindBy (xpath = "//input[@name='submit']")
+    public WebElement buttonSubmit;
+
+    @FindBy (xpath = "(//div[@style='display: block;'])[1]")
+    public WebElement successMessage;
+
+    @FindBy (xpath = "(//*[text()=' Home'])[2]")
+    public WebElement buttonHome;
+
+    @FindBy (xpath = "//h2[text()='Category']")
+    public WebElement headerCategory;
+
 
 }
