@@ -1,5 +1,7 @@
 package tests.package02;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -23,19 +25,22 @@ public class TeknosaTest {
 
     TeknosaPage teknosa = new TeknosaPage();
     Actions actions = new Actions(Driver.getDriver());
-
+    private static final Logger logger = LogManager.getLogger(TeknosaTest.class);
     @Test
-    public void teknosaTest(){
+    public void teknosaTest() {
 
+        logger.info("Test method is started");
         Driver.getDriver().get(ConfigurationReader.getProperty("teknosaUrl"));
 
-        actions.sendKeys(teknosa.aramaKutusu,"Oppo").sendKeys(Keys.ENTER).perform();
+        actions.sendKeys(teknosa.aramaKutusu, "Oppo").sendKeys(Keys.ENTER).perform();
+        logger.info("Oppo secildi");
 
-        System.out.println(teknosa.aramaSonucSayisi.getText());
+        //System.out.println(teknosa.aramaSonucSayisi.getText());
 
         actions.click(teknosa.ilkUrun).perform();
 
         actions.click(teknosa.buttonSepeteEkle).perform();
+        logger.info("Oppo sepete eklendi");
 
         ReusableMethods.bekle(2);
 
@@ -46,6 +51,7 @@ public class TeknosaTest {
         teknosa.buttonAlisverisiTamamla.click();
 
         System.out.println(teknosa.hosgeldinizYazisi.getText());
+        logger.info("Test method is finished");
 
         Driver.closeDriver();
 

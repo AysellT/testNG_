@@ -3,76 +3,54 @@ package utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
-
 import java.time.Duration;
-
-
+import java.util.concurrent.TimeUnit;
 public class Driver {
-
     /*
-    JUnit'de kullandigimiz TestBase mantigini burada Driver class'i ile olusturacagiz
-    bize driver donduren bir method olusturacagiz,TestBase'deki @Before test ile ayni islevi gorecek
+    Driver classindan driveri getDriver methodu ile kullaniyoruz
+    Sonradan projeye katilan insanlarin Driver classindan obje olusturarak
+    driver kullanmaya calismalarini engellemek icin
+    Driver classini SINGLETON PATERN ile duzenleyebiliriz
+    Bunun icin Driver clasiinin parametresiz constructor ini olusturup
+    access modifier ini PRIVATE yapmamaiz yeterli olur
      */
-
     private Driver(){
-        //...
     }
-
     static WebDriver driver;
-
-    public static WebDriver getDriver() {
-
+    static ChromeOptions ops = new ChromeOptions();
+    public static WebDriver getDriver(){
         String browser = ConfigurationReader.getProperty("browser");
-
-        if (driver == null) {
+        if (driver==null) {
             switch (browser) {
-                case "chrome":
+                case "chrome" :
+                    ops.addArguments("--remote-allow-origins=*","ignore-certificate-errors");
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    driver = new ChromeDriver(ops);
                     break;
-
-                case "firefox":
+                case "firefox" :
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
-                    break;
-
-                case "safari":
-                    WebDriverManager.safaridriver().setup();
-                    driver = new SafariDriver();
-                    break;
-
-                default:
+                default :
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
             }
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+            //   driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }
-
-        // getDriver methodunu her cagirdigimizda yeni driver olusturmasin diye
-        // eger bu method ilk defa driver olusturuyorsa yani driver==null ise
-        // if 'in bodysindeki ayarlamalari yapip driver olustursun
-        // Eger driver ilk defa olusturulmuyorsa yani driver!=null ise
-        // zaten olusturulmus olan driver'i dondursun
-
         return driver;
-
     }
-
-    public static void closeDriver() {
-
-        // Burada yukarida yaptigimizin tam tersini yapacagiz
-        // driver onceden olusturulmussa yani driver!=null ise
-        // closeDriver methodu calissin
-        // olusturulmamissa kapatacak bir driver yok demektir zaten :)
-
-        if (driver != null) {
-            driver.close();
-            driver = null;
+    public static void quitDriver(){
+        if (driver != null){
+            driver.quit();
+            driver=null;
         }
-
     }
-
+    public static void closeDriver(){
+        if (driver != null){
+            driver.close();
+            driver=null;
+        }
+    }
 }
